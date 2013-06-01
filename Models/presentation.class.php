@@ -24,6 +24,9 @@ class Presentation
 	public function getText() {
 		return $this->_text;
 	}
+	public function getId() {
+		return $this->_id;
+	}
 	
 	/**
 	 * Récupère le texte présent dans la base de donnée à selon $id.
@@ -58,7 +61,7 @@ class Presentation
 			$req = $sql->prepare('UPDATE presentation SET Text=:text WHERE id=:id_text');
 			$req->execute( array('text' => $text, ':id_text' => $id) );
 		} catch( Exception $e ) {
-			return -1;
+			echo $e->getMessage();
 		}
 		
 		try {
@@ -74,16 +77,16 @@ class Presentation
 	public function retrieveText() {
 		try {
 			Presentation::setText( "<h2>Bienvenue sur le moteur de site web : Space Engine.</h2>
-				Créer à l'origine pour le projet <a href=\"http://www.apocalyspace.fr\">ApocalySpace</a>, ce moteur ce veut très simpliste et utilisable par n'importe quel développeurs, pros ou amateurs !
-				
-				Ce moteur utilise entre autre :
-				- pattern MVC
-				- PHP5, en orienté objet
-				- PDO pour la connexion à la base de donnée
-					
-				Vous souhaitez savoir comment a été développé ce moteur ? <a href=\"http://jibidev.fr/hackathon-1-24h-sur-apocalyspace/\">Lire l'article sur JibiDev.fr !</a>
-					
-				<a href=\"index.php?p=1\">Lire la suite : Architecture du moteur</a>
+Créer à l'origine pour le projet <a href=\"http://www.apocalyspace.fr\">ApocalySpace</a>, ce moteur ce veut très simpliste et utilisable par n'importe quel développeurs, pros ou amateurs !
+
+Ce moteur utilise entre autre :
+- pattern MVC
+- PHP5, en orienté objet
+- PDO pour la connexion à la base de donnée
+	
+Vous souhaitez savoir comment a été développé ce moteur ? <a href=\"http://jibidev.fr/hackathon-1-24h-sur-apocalyspace/\">Lire l'article sur JibiDev.fr !</a>
+	
+<a href=\"index.php?p=1\">Lire la suite : Architecture du moteur</a>
 				" );
 		} catch( Exception $e ) {
 			echo $e->getMessage();

@@ -49,7 +49,7 @@
 	 */
 	function isConnected()
 	{
-		if( !empty($_SESSION['SpaceEngine_Connected']) && $_SESSION['SpaceEngine_Connected'] == true )
+		if( !empty($_SESSION['SpaceEngine_Connected']) && $_SESSION['SpaceEngine_Connected'] == true && !empty($_SESSION['SpaceEngine_ConnectedLogin']) )
 			return true;
 		else
 			return false;
@@ -92,4 +92,13 @@
 			return 1;	// OK
 		}
 		return 0; 	// ERREUR
+	}
+	
+	function createSession( $name, $content )
+	{
+		if( isset($_SESSION[$name]) )
+			return 0;
+		else
+			$_SESSION[$name] = $content;
+		return 1;
 	}

@@ -8,7 +8,7 @@
 	
 	/* Fichier de configuration du projet */
 	include_once("./config.php");
-	
+
 	/* Fonctionnement de ce point d'entrée */
 	if( isConnected() )
 	{
