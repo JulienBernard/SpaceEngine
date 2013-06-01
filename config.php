@@ -2,27 +2,32 @@
 
 	/***
 	 * 
-	 * Configuration du moteur (base de données, inclusions des fonctions, etc.)
+	 * Configuration du moteur (base de donnï¿½es, inclusions des fonctions, etc.)
 	 * @author Julien Bernard
 	 * 
 	 */
 	
 	session_start();
-	$timeStart = microtime(true);	// Temps d'exécution de la page, voir la fonction foot() (functions.php).
+	$timeStart = microtime(true);	// Temps d'exï¿½cution de la page, voir la fonction foot() (functions.php).
 	
 	/* Inclusion des fonctions du moteur */
 	include_once("./functions.php");
 	
-	/* Configuration de la base de données */
+	/* Configuration de la base de donnï¿½es */
 	define("SQL_DSN", "mysql:host=localhost;dbname=spaceengine");
 	define("SQL_USER", "root");
 	define("SQL_PASS", "");
 	define("SQL_ENCODE", "utf8");
 	
-	/* Chemin d'accès du site */
-	define("BASE_PATH", "http://localhost/Julien/ApocalySpace/SpaceEngine/");
+	/* Chemin d'accï¿½s du site */
+	define("BASE_SITE", "http://localhost:8000/Julien/ApocalySpace/SpaceEngine/");
+	define('BASE_PATH', '/Julien/ApocalySpace/SpaceEngine/');
 	
-	/* Informations par défaut */
-	define("DEFAULT_DESCRIPTION", "Moteur de site internet. Développer par Julien Bernard pour le projet ApocalySpace (www.apocalyspace.fr) !");
+	/* Informations par dï¿½faut */
+	define("DEFAULT_DESCRIPTION", "Moteur de site internet. Dï¿½velopper par Julien Bernard pour le projet ApocalySpace (www.apocalyspace.fr) !");
 	define("DEFAULT_TITLE", "SpaceEngine - ");
 	
+	/* Chemin d'accÃ¨s MVC */
+	define("PATH_MODELS", "./Models/");
+	define("PATH_CONTROLLERS", "./Controllers/");
+	define("PATH_VIEWS", "./Views/");

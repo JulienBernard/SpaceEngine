@@ -1,20 +1,20 @@
 <?php
 	/***
 	 * 
-	 * Fonctions principales du moteur. Ne pas y toucher sauf si vous êtes sûr de vous !
+	 * Fonctions principales du moteur. Ne pas y toucher sauf si vous ï¿½tes sï¿½r de vous !
 	 * @author JulienBernard
 	 *
 	 */
 
 	/**
-	 * Inclusion du template (header) avec diverses informations. Différent header peuvent être appelés si $path != null.
+	 * Inclusion du template (header) avec diverses informations. DiffÃ©rent header peuvent Ãªtre appelÃ©s si $path != null.
 	 * @param String $title
 	 * @param String $description
-	 * @param array[String] $t_css		Tableau des chemins d'accès aux styles
-	 * @param array[String] $t_scripts	Tableau des chemins d'accès aux scripts
+	 * @param array[String] $t_css		Tableau des chemins d'accÃ¨s aux styles
+	 * @param array[String] $t_scripts	Tableau des chemins d'accÃ¨s aux scripts
 	 * @param String $path
 	 */
-	function head( $title, $description, $t_css, $t_scripts, $path = NULL ) {
+	function head( $title, $description, $t_css, $t_script, $path = NULL ) {
 		if( !empty( $path ) )
 			$path = '.'.(String)$path;
 	
@@ -22,9 +22,9 @@
 	}
 	
 	/**
-	 * Inclusion du template (footer). Différent footer peuvent être appelés si $path != null.
+	 * Inclusion du template (footer). DiffÃ©rent footer peuvent Ãªtre appelÃ©s si $path != null.
 	 * @param String $path
-	 * @param timestamp $timeStart		Timer pour le temps d'éxécution de la page (si renseigné)
+	 * @param timestamp $timeStart		Timer pour le temps d'Ã©xÃ©cution de la page (si renseignÃ©)
 	 */
 	function foot( $path = NULL, $timeStart = NULL) {
 		if( !empty( $path ) )
@@ -44,7 +44,7 @@
 	}
 	
 	/**
-	 * Retourne "true" si la session "SpaceEngine_Connected" existe et retourne "true" => le visiteur est "connecté".
+	 * Retourne "true" si la session "SpaceEngine_Connected" existe et retourne "true" => le visiteur est "connectÃ©".
 	 * @return boolean
 	 */
 	function isConnected()
@@ -56,9 +56,9 @@
 	}
 	
 	/**
-	 * Vérifie que les champs du tableau ne sont pas vide (un champ peut être égale à 0, '0' ou ' ') !
-	 * @param array $array				Champs à vérifier
-	 * @param array $strictPositive		Si != NULL, alors les champs ne doivent être que positif
+	 * VÃ©rifie que les champs du tableau ne sont pas vide (un champ peut Ãªtre Ã©gale Ã  0, '0' ou ' ') !
+	 * @param array $array				Champs Ã  vÃ©rifier
+	 * @param array $strictPositive		Si != NULL, alors les champs ne doivent Ãªtre que positif
 	 * @return boolean
 	 */
 	function verifyParams( $array, $strictPositive = NULL )

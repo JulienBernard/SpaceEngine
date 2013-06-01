@@ -11,9 +11,15 @@
 	
 	/* Fonctionnement de ce point d'entrée */
 	if( isConnected() )
+	{
 		$controllerPath = "./Controllers/accueil.connect.php";
+		$viewPath = "./Views/accueil.connect.php";
+	}
 	else
+	{
 		$controllerPath = "./Controllers/accueil.php";
+		$viewPath = "./Views/accueil.php";
+	}
 	
 	/* Informations sur la page */
 	$title = "Accueil";
@@ -21,6 +27,7 @@
 	
 	/* Appel des styles */
 	$t_css = array();
+	$t_css[0] = "style.css";
 	
 	/* Appel des scripts */
 	$t_script = array();
