@@ -16,9 +16,13 @@
 			Vous devez être connecté pour modifier ce texte.
 		</p>
 		<form action="index.php" method="POST">
-			Pseudo <input type="text" name="login" value="test" /><br />
-			Mot de passe <input type="password" name="password" value="test" />
-			<input type="submit" name="Connexion" value="Connexion" />
+			Pseudo <input type="text" name="login" value="test" /><?php if( isset($returnError) && $returnError['login'] == 0) echo "Ce champ ne doit pas être vide."; ?><br />
+			Mot de passe <input type="password" name="password" value="test" /><?php if( isset($returnError) && $returnError['password'] == 0 ) echo "Ce champ ne doit pas être vide."; ?><br />
+			<input type="submit" name="Connection" value="Connexion" />
 		</form>
+		<?php
+			if( !empty($errorLogin) )
+				echo "<p>".$errorLogin."</p>";
+		?>
 	</article>
 	

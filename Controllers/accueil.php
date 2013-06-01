@@ -7,10 +7,23 @@
 	
 	/* Une action sur un formulaire (envoie par POST) a été effectuée.  */
 	if( isset($_POST) ) {
-		if( !empty($_POST['retrieveText']) ) {
+		if( isset($_POST['retrieveText']) ) {
 			$presentation->retrieveText();
 		}
+		
+		if( isset($_POST['Connection']) ) {
+			$fields = array('login' => $_POST['login'], 'password' => $_POST['password']);
+			$return = verifyParams($fields);
+			if( $return == 1 ) {
+				$login = (String)$_POST['login'];
+				$password = (String)$_POST['password'];
+			}
+			else {
+				$errorLogin = "Un des champs est vide.";
+				$returnError = $return;
+			}
+		}
 	}
-	
+
 	/* Inclusion de la vue */
 	include_once( $viewPath );

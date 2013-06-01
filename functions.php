@@ -82,12 +82,14 @@
 				}
 	
 			}
+			
 			foreach( $arrayError as $key => $value )
-			{
+			{				
 				if( !$value )
-					return $arrayError[$key];	// Un des champs est vide, on retourne un tableau contenant le statut des champs (1= OK, 0 = vide)
-			}
-			return true;	// OK
+					return $arrayError;	// Un des champs est vide, on retourne un tableau contenant le statut des champs (1= OK, 0 = vide)
+			}	
+			
+			return 1;	// OK
 		}
-		return false; 	// ERREUR
+		return 0; 	// ERREUR
 	}

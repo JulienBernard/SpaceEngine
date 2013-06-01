@@ -40,7 +40,7 @@ class Presentation
 			$row = $req->fetch();
 			$result = $row['text'];				
 		} catch( Exception $e ) {
-			return -1;
+			echo $e->getMessage();
 		}			
 			
 		try {				
