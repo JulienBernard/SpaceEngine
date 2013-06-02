@@ -21,5 +21,5 @@
 **Principal programmation langage:** PHP in version 5 for object-oriented programming<br>
 
 ## Changelog
-**02/06/13 -** Fin du développement. / Ending of the development.
+**02/06/13 -** Fin du développement. / Ending of the development.<br>
 **01/06/13 -** Début du développement. / Beginning of the development.
