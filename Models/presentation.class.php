@@ -29,7 +29,7 @@ class Presentation
 	}
 	
 	/**
-	 * Récupère le texte présent dans la base de donnée à selon $id.
+	 * Récupère le texte présent dans la base de donnée selon $id.
 	 * @param int $id
 	 */
 	public function getTextFromDatabase( $id ) {
@@ -38,7 +38,7 @@ class Presentation
 		
 		try {
 			$req = $sql->prepare('SELECT text FROM presentation WHERE id=:id_text');
-			$req->execute( array(':id_text' => $id) );
+			$req->execute( array(':id_text' => (int)$id) );
 			
 			$row = $req->fetch();
 			$result = $row['text'];				
@@ -54,12 +54,17 @@ class Presentation
 		}
 	}
 	
+	/**
+	 * Modifie le texte présent dans la base de donnée par $text selon $id.
+	 * @param String $text
+	 * @param int $id
+	 */
 	public function setTextFromDatabase( $text, $id ) {
 		$sql = MyPDO::get();
 		
 		try {
 			$req = $sql->prepare('UPDATE presentation SET Text=:text WHERE id=:id_text');
-			$req->execute( array('text' => $text, ':id_text' => $id) );
+			$req->execute( array('text' => (String)$text, ':id_text' => (int)$id) );
 		} catch( Exception $e ) {
 			echo $e->getMessage();
 		}

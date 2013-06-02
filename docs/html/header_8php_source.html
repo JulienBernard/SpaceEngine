@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpaceEngine
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
  </tr>
@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
       <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,35 +98,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    &lt;meta name=<span class="stringliteral">&quot;Author&quot;</span> lang=<span class="stringliteral">&quot;fr&quot;</span> content=<span class="stringliteral">&quot;Julien BERNARD&quot;</span>&gt;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    &lt;meta name=<span class="stringliteral">&quot;Publisher&quot;</span> content=<span class="stringliteral">&quot;Julien BERNARD&quot;</span>&gt;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    &lt;base href=<span class="stringliteral">&quot;&lt;?php echo BASE_PATH; ?&gt;&quot;</span> /&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    &lt;base href=<span class="stringliteral">&quot;&lt;?php echo BASE_SITE; ?&gt;&quot;</span> /&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    &lt;?php</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="comment">// Chargement de la description</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">if</span>( !empty( $description ) )</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            echo <span class="stringliteral">&#39;&lt;meta name=&quot;description&quot; content=&quot;&#39;</span>.$description.<span class="stringliteral">&#39;&quot; /&gt;&#39;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            echo <span class="stringliteral">&#39;&lt;meta name=&quot;description&quot; content=&quot;&#39;</span>.DEFAULT_DESCRIPTION.<span class="stringliteral">&#39;&quot; /&gt;&#39;</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ?&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    &lt;?php   </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            echo <span class="stringliteral">&#39;&lt;meta name=&quot;description&quot; content=&quot;&#39;</span>.$description.<span class="stringliteral">&#39;&quot; /&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="stringliteral">            &#39;</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            echo <span class="stringliteral">&#39;&lt;meta name=&quot;description&quot; content=&quot;&#39;</span>.DEFAULT_DESCRIPTION.<span class="stringliteral">&#39;&quot; /&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">            &#39;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">// Chargement des CSS</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">foreach</span>( $t_css as $css )</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            echo <span class="stringliteral">&#39;&lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;css/&#39;</span>.$css.<span class="stringliteral">&#39;&quot; /&gt;&#39;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ?&gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            echo <span class="stringliteral">&#39;&lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;css/&#39;</span>.$css.<span class="stringliteral">&#39;&quot; /&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">            &#39;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    &lt;?php   </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Chargement des scripts</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">foreach</span>( $t_scripts as $script )</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        echo <span class="stringliteral">&#39;&lt;script type=&quot;text/javascript&quot; src=&quot;js/&#39;</span>.$script.<span class="stringliteral">&#39;&quot;&gt;&lt;/script&gt;&#39;</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;?&gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">// Chargement des scripts</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">foreach</span>( $t_script as $script )</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            echo <span class="stringliteral">&#39;&lt;script type=&quot;text/javascript&quot; src=&quot;./js/&#39;</span>.$script.<span class="stringliteral">&#39;&quot;&gt;&lt;/script&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="stringliteral">            &#39;</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ?&gt;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;&lt;/head&gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
@@ -134,14 +135,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    &lt;section&gt;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        &lt;header <span class="keywordtype">id</span>=<span class="stringliteral">&quot;Top&quot;</span>&gt;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            &lt;p&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                &lt;span <span class="keywordtype">id</span>=<span class="stringliteral">&quot;SmallOne&quot;</span>&gt;JULIEN BERNARD présente&lt;/span&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                SpaceEngine : moteur de site internet pour ApocalySpace (www.apocalyspace.fr)&lt;br /&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                &lt;span <span class="keywordtype">id</span>=<span class="stringliteral">&quot;SmallTwo&quot;</span>&gt;PHP5 - ORIENTE OBJET - PDO&lt;/span&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                &lt;span <span class="keywordtype">id</span>=<span class="stringliteral">&quot;SmallOne&quot;</span>&gt;JULIEN BERNARD présente SpaceEngine, un moteur web imaginé pour &lt;a href=<span class="stringliteral">&quot;http://www.apocalyspace.fr&quot;</span> style=<span class="stringliteral">&quot;color: white;&quot;</span>&gt;www.apocalyspace.fr&lt;/a&gt;&lt;/span&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                SpaceEngine : moteur de site internet, simple et rapide !&lt;br /&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                &lt;span <span class="keywordtype">id</span>=<span class="stringliteral">&quot;SmallTwo&quot;</span>&gt;PHP5 - ORIENTE OBJET - PDO - PATTERN MVC&lt;/span&gt;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            &lt;/p&gt;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        &lt;/header&gt;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        &lt;article <span class="keywordtype">id</span>=<span class="stringliteral">&quot;Link&quot;</span>&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            &lt;a href=<span class="stringliteral">&quot;index.php&quot;</span>&gt;Présentation&lt;/a&gt; - &lt;a href=<span class="stringliteral">&quot;index.php?p=1&quot;</span>&gt;Architecture&lt;/a&gt; - &lt;a href=<span class="stringliteral">&quot;index.php?p=2&quot;</span>&gt;Utilisation&lt;/a&gt; - &lt;a href=<span class="stringliteral">&quot;index.php?p=3&quot;</span>&gt;Auteur &amp; Liens&lt;/a&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            &lt;a href=<span class="stringliteral">&quot;index.php&quot;</span>&gt;Présentation&lt;/a&gt;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        &lt;/article&gt;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    &lt;/section&gt;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
@@ -151,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 1 2013 20:46:13 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Juin 2 2013 19:36:01 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

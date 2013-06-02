@@ -1,7 +1,7 @@
 <?php
 	/***
 	 * 
-	 * Point d'entrée de la page d'accueil.
+	 * Point d'entrÃ©e de la page d'accueil.
 	 * @author JulienBernard
 	 * 
 	 */
@@ -9,7 +9,7 @@
 	/* Fichier de configuration du projet */
 	include_once("./config.php");
 
-	/* Fonctionnement de ce point d'entrée */
+	/* Fonctionnement de ce point d'entrÃ©e */
 	if( isConnected() )
 	{
 		$controllerPath = "./Controllers/accueil.connect.php";

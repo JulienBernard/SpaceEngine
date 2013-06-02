@@ -52,7 +52,7 @@
 		</header>
 		
 		<article id="Link">
-			<a href="index.php">Présentation</a> - <a href="index.php?p=1">Architecture</a> - <a href="index.php?p=2">Utilisation</a> - <a href="index.php?p=3">Auteur & Liens</a>
+			<a href="index.php">Présentation</a> - <a href="http://jibidev.fr/a-propos">Auteur</a>
 		</article>
 	</section>
 

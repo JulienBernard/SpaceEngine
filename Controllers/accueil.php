@@ -11,7 +11,7 @@
 			$presentation->retrieveText();
 		}
 		
-		if( isset($_POST['Connection']) ) {
+		if( isset($_POST['connection']) ) {
 			$fields = array('login' => $_POST['login'], 'password' => $_POST['password']);
 			$return = verifyParams($fields);
 			if( $return == 1 ) {
@@ -27,12 +27,11 @@
 					header("location: index.php");
 				}
 				else {
-					$errorLogin = "Erreur de connexion. Le pseudo et le mot de passe ne correspondent pas.";
+					$ERROR = "Le pseudo et le mot de passe ne correspondent pas.";
 				}
 			}
 			else {
-				$errorLogin = "Un des champs est vide.";
-				$returnError = $return;
+				$INFO = "Un des champs est vide.";
 			}
 		}
 	}

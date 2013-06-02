@@ -126,3 +126,37 @@ img {
 .Blue {
 	color: blue;
 }
+
+.Error {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	width: 600px;
+	padding: 5px;
+	background-color: #C96D63;
+	border: 1px solid #C03000;
+	color: white;
+}
+.Info {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	width: 600px;
+	padding: 5px;
+	background-color: #77ABD6;
+	border: 1px solid #495CFF;
+	color: white;
+}
+.Success {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	width: 600px;
+	padding: 5px;
+	background-color: #78A419;
+	border: 1px solid #456B35;
+	color: white;
+}
