@@ -2,7 +2,12 @@
 
 <html lang="fr">
 <head>
-	<title><?php echo DEFAULT_TITLE.$title; ?></title>
+
+	<!--	SpaceEngine Copyright (C) 2013 Julien Bernard
+			SpaceEngine is a free website engine under GPL license!
+			Site propulsé sous le moteur de site web libre, le SpaceEngine.	-->
+
+	<title><?php echo DEFAULT_TITLE.$Template->getTitle(); ?></title>
 	<meta charset="utf-8" />
 	<meta name="google-site-verification" content="v2Ddq6qw70xR2UAFJGCzfMQhrB-gJQDQjaRlS1J2dts" /> 
 	<meta name="Author" lang="fr" content="Julien BERNARD">
@@ -12,9 +17,10 @@
 	
 	<?php
 		// Chargement de la description
-		if( !empty( $description ) )
+		$rt = $Template->getDescription();
+		if( !empty( $rt ) )
 		{
-			echo '<meta name="description" content="'.$description.'" />
+			echo '<meta name="description" content="'.$Template->getDescription().'" />
 			';
 		}
 		else
@@ -24,14 +30,14 @@
 		}
 		
 		// Chargement des CSS
-		foreach( $t_css as $css )
+		foreach( $Template->getCss() as $css )
 		{
 			echo '<link rel="stylesheet" media="screen" href="css/'.$css.'" />
 			';
 		}
 	
 		// Chargement des scripts
-		foreach( $t_script as $script )
+		foreach( $Template->getScript() as $script )
 		{
 			echo '<script type="text/javascript" src="./js/'.$script.'"></script>
 			';

@@ -82,7 +82,7 @@ class Presentation
 	public function retrieveText() {
 		try {
 			Presentation::setText( "<h2>Bienvenue sur le moteur de site web : Space Engine.</h2>
-Créer à l'origine pour le projet <a href=\"http://www.apocalyspace.fr\">ApocalySpace</a>, ce moteur ce veut très simpliste et utilisable par n'importe quel développeurs, pros ou amateurs !
+Créé à l'origine pour le projet <a href=\"http://www.apocalyspace.fr\">ApocalySpace</a>, le SpaceEngine est un moteur très simpliste et utilisable par n'importe quel développeurs, pros ou amateurs !
 
 Ce moteur utilise entre autre :
 - pattern MVC
@@ -90,9 +90,17 @@ Ce moteur utilise entre autre :
 - PDO pour la connexion à la base de donnée
 	
 Vous souhaitez savoir comment a été développé ce moteur ? <a href=\"http://jibidev.fr/hackathon-1-24h-sur-apocalyspace/\">Lire l'article sur JibiDev.fr !</a>
-	
-<a href=\"index.php?p=1\">Lire la suite : Architecture du moteur</a>
+Le moteur est distribué sous <a href=\"http://www.gnu.org/licenses/gpl.html\">licence GPL</a>, il est donc <em>totalement</em> libre !
+
+<a href=\"http://jibidev.fr/a-propos\">Auteur</a>
+<a href=\"http://www.gnu.org/licenses/gpl.html\">Licence GPL</a>
 				" );
+		} catch( Exception $e ) {
+			echo $e->getMessage();
+		}
+		
+		try {
+			Presentation::setTextFromDatabase( Presentation::getText(), Presentation::getId() );
 		} catch( Exception $e ) {
 			echo $e->getMessage();
 		}
