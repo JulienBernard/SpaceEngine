@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpaceEngine
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">1.2</span>
    </div>
   </td>
  </tr>
@@ -155,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="class_presentation.html#ab719341b8b5c6b45135914236539c961">   82</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_presentation.html#ab719341b8b5c6b45135914236539c961">retrieveText</a>() {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">try</span> {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            Presentation::setText( <span class="stringliteral">&quot;&lt;h2&gt;Bienvenue sur le moteur de site web : Space Engine.&lt;/h2&gt;</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">Créer à l&#39;origine pour le projet &lt;a href=\&quot;http://www.apocalyspace.fr\&quot;&gt;ApocalySpace&lt;/a&gt;, ce moteur ce veut très simpliste et utilisable par n&#39;importe quel développeurs, pros ou amateurs !</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">Créé à l&#39;origine pour le projet &lt;a href=\&quot;http://www.apocalyspace.fr\&quot;&gt;ApocalySpace&lt;/a&gt;, le SpaceEngine est un moteur très simpliste et utilisable par n&#39;importe quel développeurs, pros ou amateurs !</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">Ce moteur utilise entre autre :</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">- pattern MVC</span></div>
@@ -163,18 +163,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">- PDO pour la connexion à la base de donnée</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">    </span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">Vous souhaitez savoir comment a été développé ce moteur ? &lt;a href=\&quot;http://jibidev.fr/hackathon-1-24h-sur-apocalyspace/\&quot;&gt;Lire l&#39;article sur JibiDev.fr !&lt;/a&gt;</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">    </span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">&lt;a href=\&quot;index.php?p=1\&quot;&gt;Lire la suite : Architecture du moteur&lt;/a&gt;</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">                &quot;</span> );</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        } <span class="keywordflow">catch</span>( Exception $e ) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            echo $e-&gt;getMessage();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }   </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">Le moteur est distribué sous &lt;a href=\&quot;http://www.gnu.org/licenses/gpl.html\&quot;&gt;licence GPL&lt;/a&gt;, il est donc &lt;em&gt;totalement&lt;/em&gt; libre !</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">&lt;a href=\&quot;http://jibidev.fr/a-propos\&quot;&gt;Auteur&lt;/a&gt;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">&lt;a href=\&quot;http://www.gnu.org/licenses/gpl.html\&quot;&gt;Licence GPL&lt;/a&gt;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">                &quot;</span> );</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        } <span class="keywordflow">catch</span>( Exception $e ) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            echo $e-&gt;getMessage();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="class_presentation.html#a356b67ff95f9e1b1d00744a8789ec27d">Presentation::setTextFromDatabase</a>( Presentation::getText(), Presentation::getId() );</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        } <span class="keywordflow">catch</span>( Exception $e ) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            echo $e-&gt;getMessage();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }   </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Juin 2 2013 19:36:01 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 4 2013 02:08:49 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

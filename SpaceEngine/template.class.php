@@ -11,7 +11,7 @@ class Template implements ITemplate {
 	private $_tscript = array();
 	
 	/**
-	 * Inclusion du template header.
+	 * Inclusion du fichier selon son chemin d'accès ($path)
 	 */
 	public function startTemplate( $path, $Template ) {			
 		include_once( $path );

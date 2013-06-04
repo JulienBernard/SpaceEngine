@@ -8,6 +8,7 @@ interface IEngine {
 	public static function isConnected();
 	public static function isAdmin();
 	public function createSession( $name, $content );
+	public function destroySession( $name );
 	public function checkParams( $array, $strictPositive );
 	public function getControllerPath();
 	public function getViewPath();
