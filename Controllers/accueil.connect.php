@@ -10,6 +10,12 @@
 		if( isset($_POST['retrieveText']) ) {
 			$presentation->retrieveText();
 		}
+		if( isset($_POST['logout']) ) {
+			$Engine->destroySession("SpaceEngineConnected");
+			$Engine->destroySession("SpaceEngineAdmin");
+			session_destroy();
+			header("location: index.php");
+		}
 		
 		if( isset($_POST['updateText']) ) {
 			$text = (String)$_POST['text'];
@@ -18,4 +24,4 @@
 	}
 
 	/* Inclusion de la vue */
-	include_once( $viewPath );
+	include_once( $Engine->getViewPath() );

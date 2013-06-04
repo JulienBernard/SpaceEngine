@@ -7,13 +7,10 @@
 	
 	/* Une action sur un formulaire (envoie par POST) a été effectuée.  */
 	if( isset($_POST) ) {
-		if( isset($_POST['retrieveText']) ) {
-			$presentation->retrieveText();
-		}
 		
 		if( isset($_POST['connection']) ) {
 			$fields = array('login' => $_POST['login'], 'password' => $_POST['password']);
-			$return = verifyParams($fields);
+			$return = $Engine->checkParams($fields);
 			if( $return == 1 ) {
 				$login = (String)$_POST['login'];
 				$password = (String)$_POST['password'];
@@ -22,19 +19,21 @@
 				
 				if( User::checkConnection( $login, $password ) )
 				{
-					createSession("SpaceEngine_Connected", true);
-					createSession("SpaceEngine_ConnectedLogin", $login);
+					$Engine->createSession("SpaceEngineConnected", true);
 					header("location: index.php");
 				}
-				else {
-					$ERROR = "Le pseudo et le mot de passe ne correspondent pas.";
-				}
+				else
+					$ERROR = $Engine->setError("Le pseudo et le mot de passe ne correspondent pas.");
 			}
-			else {
-				$INFO = "Un des champs est vide.";
-			}
+			else
+				$Engine->setInfo("Un des champs est vide.");
 		}
 	}
 
+	/* Gestion des erreurs */
+	$INFO = $Engine->getInfo();
+	$ERROR = $Engine->getError();
+	$SUCCESS = $Engine->getSuccess();
 	/* Inclusion de la vue */
-	include_once( $viewPath );
+	include_once( $Engine->getViewPath() );
+	

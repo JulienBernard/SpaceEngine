@@ -9,7 +9,7 @@
 > PHP5 website engine developed for ApocalySpace project. You can use this base for your Object-oriented programming website project.
 
 ## Version
-**Lastest version:** 1.1<br>
+**Lastest version:** 1.2<br>
 **Stability of version:** in development<br>
 <br>
 **MASTER branch:** stable version and project informations<br>
@@ -21,5 +21,6 @@
 **Principal programmation langage:** PHP in version 5 for object-oriented programming<br>
 
 ## Changelog
+**04/06/13 -** Amélioration du moteur, intégration des interfaces pour un moteur 100% objet. / Update, the engine now integrates interfaces for a full-object engine.<br>
 **02/06/13 -** Fin du développement. / Ending of the development.<br>
 **01/06/13 -** Début du développement. / Beginning of the development.

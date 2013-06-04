@@ -1,4 +1,5 @@
 <?php
+
 	/***
 	 * 
 	 * Point d'entrée de la page d'accueil.
@@ -6,44 +7,21 @@
 	 * 
 	 */
 	
-	/* Fichier de configuration du projet */
+	/* Le namePage permet d'identifier votre page. Il doit être être écrit en minuscule et tenir en un seul mot.
+	 */
+	$namePage = "accueil";
+	
+	/* Appel du moteur [ne pas modifier] */
 	include_once("./config.php");
-
-	/* Fonctionnement de ce point d'entrée */
-	if( isConnected() )
-	{
-		$controllerPath = "./Controllers/accueil.connect.php";
-		$viewPath = "./Views/accueil.connect.php";
-	}
-	else
-	{
-		$controllerPath = "./Controllers/accueil.php";
-		$viewPath = "./Views/accueil.php";
-	}
 	
-	/* Informations sur la page */
-	$title = "Accueil";
-	$description = "Description de la page d'accueil";
+	$Engine = new Engine( $namePage );
+	$Template = new Template();
 	
-	/* Appel des styles */
-	$t_css = array();
-	$t_css[0] = "style.css";
+	/* Informations sur la page [valeurs à modifier] */
+	$Template->setTitle("Accueil");
+	$Template->setDescription("Site propulsé par le SpaceEngine ! SpaceEngine Copyright (C) 2013 Julien Bernard - SpaceEngine is a free website engine under GPL license!");
+	$Template->addCss("style.css");
 	
-	/* Appel des scripts */
-	$t_script = array();
-	
-	/* Appel du template : header */
-	if( isConnected() )
-		head( $title, $description, $t_css, $t_script, "connect");
-	else
-		head( $title, $description, $t_css, $t_script);
-		
-	/* Appel du controller */
-	include_once( $controllerPath );
-	
-	/* Appel du template : footer */
-	if( isConnected() )
-		foot( "connect" );
-	else
-		foot();
+	/* Lancement du moteur [ne pas modifier] */
+	$Engine->startEngine( $Engine, $Template );
 ?>

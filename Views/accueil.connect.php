@@ -9,6 +9,7 @@
 		</p>
 		<form action="index.php" method="POST">
 			<input type="submit" name="retrieveText" value="Récuperer le texte" />
+			<input type="submit" name="logout" value="Déconnexion" />
 		</form>
 		<br />
 		<h2>Modifier ce texte via PDO :</h2>
