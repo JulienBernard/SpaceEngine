@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpaceEngine
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">1.2</span>
    </div>
   </td>
  </tr>
@@ -97,41 +97,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">/* Une action sur un formulaire (envoie par POST) a été effectuée.  */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">if</span>( isset($_POST) ) {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordflow">if</span>( isset($_POST[<span class="stringliteral">&#39;retrieveText&#39;</span>]) ) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            $presentation-&gt;retrieveText();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">if</span>( isset($_POST[<span class="stringliteral">&#39;connection&#39;</span>]) ) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            $fields = array(<span class="stringliteral">&#39;login&#39;</span> =&gt; $_POST[<span class="stringliteral">&#39;login&#39;</span>], <span class="stringliteral">&#39;password&#39;</span> =&gt; $_POST[<span class="stringliteral">&#39;password&#39;</span>]);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            $return = verifyParams($fields);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">if</span>( $return == 1 ) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                $login = (String)$_POST[<span class="stringliteral">&#39;login&#39;</span>];</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                $password = (String)$_POST[<span class="stringliteral">&#39;password&#39;</span>];</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                include_once(PATH_MODELS.<span class="stringliteral">&quot;user.class.php&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">if</span>( <a class="code" href="class_user.html#ae7b9bf361c6a977d2969304a44bbabad">User::checkConnection</a>( $login, $password ) )</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    createSession(<span class="stringliteral">&quot;SpaceEngine_Connected&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    createSession(<span class="stringliteral">&quot;SpaceEngine_ConnectedLogin&quot;</span>, $login);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    header(<span class="stringliteral">&quot;location: index.php&quot;</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    $ERROR = <span class="stringliteral">&quot;Le pseudo et le mot de passe ne correspondent pas.&quot;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                $INFO = <span class="stringliteral">&quot;Un des champs est vide.&quot;</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/* Inclusion de la vue */</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    include_once( $viewPath );</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">if</span>( isset($_POST[<span class="stringliteral">&#39;connection&#39;</span>]) ) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            $fields = array(<span class="stringliteral">&#39;login&#39;</span> =&gt; $_POST[<span class="stringliteral">&#39;login&#39;</span>], <span class="stringliteral">&#39;password&#39;</span> =&gt; $_POST[<span class="stringliteral">&#39;password&#39;</span>]);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            $return = $Engine-&gt;checkParams($fields);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <span class="keywordflow">if</span>( $return == 1 ) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                $login = (String)$_POST[<span class="stringliteral">&#39;login&#39;</span>];</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                $password = (String)$_POST[<span class="stringliteral">&#39;password&#39;</span>];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                include_once(PATH_MODELS.<span class="stringliteral">&quot;user.class.php&quot;</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordflow">if</span>( <a class="code" href="class_user.html#ae7b9bf361c6a977d2969304a44bbabad">User::checkConnection</a>( $login, $password ) )</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                    $Engine-&gt;createSession(<span class="stringliteral">&quot;SpaceEngineConnected&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    header(<span class="stringliteral">&quot;location: index.php&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    $ERROR = $Engine-&gt;setError(<span class="stringliteral">&quot;Le pseudo et le mot de passe ne correspondent pas.&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                $Engine-&gt;setInfo(<span class="stringliteral">&quot;Un des champs est vide.&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">/* Gestion des erreurs */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    $INFO = $Engine-&gt;getInfo();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    $ERROR = $Engine-&gt;getError();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    $SUCCESS = $Engine-&gt;getSuccess();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">/* Inclusion de la vue */</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    include_once( $Engine-&gt;getViewPath() );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Juin 2 2013 19:36:01 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 4 2013 02:08:49 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
