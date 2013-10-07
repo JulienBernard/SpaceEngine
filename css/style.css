@@ -1,82 +1,93 @@
 /* style.css par Julien Bernard le 20/03/12 */
 
+html {
+	height: 100%;
+}
+
 body {
 	width: 100%;
+	height: 100%;
 	margin: auto;
-	padding-top: 30px;
-	background-color: #ededed;
+	background-color: #3498db;
 }
+
+@font-face{
+	font-family: 'MALGUN';
+	src: url('malgun.eot');
+	src: url('malgun.eot?#iefix') format('embedded-opentype'),
+		url('malgun.woff') format('woff'),
+		url('malgun.ttf') format('truetype'),
+		url('malgun.svg#webfont') format('svg');
+	}
 
 a {
 	text-decoration: none;
-	color: #424242;
+	color: white;
 }
 	a:hover {
-		color: green;
+		color: #111;
 	}
-	
-h1 {
-	font-size: 26px;
-	margin: 0;
-	padding: 0;
-	letter-spacing: 2px;
-	text-align: center;
-}
-
-h2 {
-	font-size: 20px;
-	margin: 0;
-	padding: 0;
-	letter-spacing: 0.5px;
-	color: #101010;
-}
 
 img {
 	margin-bottom: -4px;
 }
 
-#Top {
+#header {
 	width: 100%;
-	margin: auto;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	background-color: #313131;
-	border-bottom: 1px solid #535353;
-	color: #ededed;
-	font-size: 28px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #3498db;
 	text-align: center;
-	font-family: Verdana;
+	padding-top: 2%;
 }
-	#Top #SmallOne {
-		display: block;
-		margin-bottom: 10px;
-		font-size: 12px;
-		text-align: left;
-		margin-left: 20%;
-	}
-	#Top #SmallTwo {
-		display: block;
-		margin-top: 10px;
-		font-size: 14px;
-		text-align: right;
-		padding-right: 20%;
-	}
-	#Top a {
+	#header h1 {
 		color: white;
+		font-weight: normal;
+		font-size: 70px;
+		margin: 0;
+		padding: 0;
+		letter-spacing: 3px;
+		text-align: center;
+		font-family: MALGUN;
+		text-shadow: 2px 3px 1px #2980b9;
+	}
+	#header p {
+		font-family: MALGUN;
+		color: #D9EFFF;
+		font-size: 25px;
+		text-shadow: 2px 3px 1px #2980b9;
 	}
 
-#Link {
-	width: 700px;
+.navigation {
+	width: 100%;
 	margin: auto;
-	margin-top: 10px;
-	padding: 5px 0 5px;
-	border-bottom: 1px solid #313131;
-	font-size: 17px;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	border-bottom: 1px solid #3498db;
+	background: #f8fafa;
 	text-align: center;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
+	font-family: MALGUN;
+	font-size: 18px;
+	box-shadow: 1px 1px 6px black;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
-	#Link p {
-		display: inline;
+	.navigation a {
+		color: #f39c12;
+		font-size: 22px;
+		display: inline-block;
+		padding: 30px;
+		-webkit-transition: all 0.5s ease-out;
+		-moz-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
+	}
+	.navigation a:hover {
+		color: white;
+		background: #e74c3c;
+		text-shadow: 2px 2px 2px #7f8c8d;
 	}
 
 #Script {
@@ -106,16 +117,100 @@ img {
 	letter-spacing: 1px;
 }
 	
-.Body {
+#main {
 	display: block;
-	width: 800px;
+	width: 100%;
+	height: 100%;
 	margin: auto;
-	margin-top: 20px;
-	padding: 20px;
-	background-color: #f3f5f7;
-	border: 1px solid #dce2e7;
+	color: #f8fafa;
 }
+	#main h1 {
+		font-family: MALGUN;
+		font-size: 50px;
+		letter-spacing: 3px;
+		color: white;
+	}
+	#main h2 {
+		font-family: MALGUN;
+		font-size: 30px;
+		letter-spacing: 3px;
+	}
+	#main p {
+		font-family: MALGUN;
+	}
+	.primary {
+		background: #2980b9;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		height: 100%;
+	}
+	.secondary {
+		background: #3498db;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		height: 100%;
+	}
+	.article {
+		height: 100%;
+		padding-left: 15%;
+		padding-bottom: 1px;
+	}
+	
+#footer {
+	width: 70%;
+	margin: auto;
+	padding: 1%;
+	background: white;
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+	position: fixed;
+	bottom: 0;
+	left: 15%;
+	font-family: MALGUN;
+	font-size: 14px;
+}
+	
+ul {
+	margin-top: -5px;
+	font-family: MALGUN;
+	font-size: 26px;
+	color: white;
+}
+	li {
+		list-style-image: url("../img/list.png");
+		text-indent: 15px;
+		-webkit-transition: all 0.5s ease-out;
+		-moz-transition: all 0.5s ease-out;
+		-o-transition: all 0.5s ease-out;
+		transition: all 0.5s ease-out;
+	}
+	li:hover {
+		text-indent: 50px;
+		cursor: pointer;
+	}
 
+.fast-link {
+	display: block;
+	float: right;
+	margin-right: 25%;
+	margin-top: 20px;
+	font-family: MALGUN;
+	font-size: 16px;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+	.primary:hover .fast-link {
+		opacity: 1;
+	}
+	.secondary:hover .fast-link {
+		opacity: 1;
+	}
+	.fast-link a {
+		color: #34495e;
+	}
 .Center {
 	display: block;
 	margin: 0;
