@@ -61,9 +61,13 @@
 		<section class="primary tutorial">
 			<nav class="navigation follow">
 				<a href="#" class="toTop"><img src="./img/up.png" alt="Previous" /></a><br />
-				<a href="#">I'm on GitHub</a><a href="#">I'm on Twitter</a><br />
-				<a href="#">Play online with me on ApocalySpace</a><a href="#">Meet me at Paris with the LAN PARTY</a>
+				<a href="https://github.com/JulienBernard">I'm on GitHub</a><a href="https://twitter.com/ProJibi">I'm on Twitter</a><br />
+				<a href="#" data-dropdown="drop1">Play online with me on ApocalySpace</a><a href="#" data-dropdown="drop1">Meet me at Paris with the LAN PARTY</a>
 			</nav>
 		</section>
 	</main>
+	
+	<ul id="drop1" class="f-dropdown content" data-dropdown-content>
+		<h6>Not available yet!</h6>
+	</ul>
 	

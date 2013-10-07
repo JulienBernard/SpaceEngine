@@ -58,7 +58,7 @@
 		<h1>SpaceEngine</h1>
 		<p>A FREE AND OPEN-SOURCE ENGINE, FOR PHP5 WEBSITE</p>
 	
-		<a href="" class="alert button radius">Source</a>
+		<a href="https://github.com/JulienBernard/SpaceEngine" class="alert button radius">Source</a>
 		<a href="" class="success button radius">Download the latest version (1.0)</a>
 		<a href="" class="button radius">Try it!</a>
 	

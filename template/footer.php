@@ -1,6 +1,6 @@
 	
 	<footer id="footer">
-		<img src="./img/php.png" alt="PHP" /> <img src="./img/html.png" alt="HTMl" /> <a href=""><img src="./img/foundation.png" alt="Foundation4" /></a> <img src="./img/css.png" alt="CSS" /> <img src="./img/js.png" alt="JS" />
+		<img src="./img/php.png" alt="PHP" /> <img src="./img/html.png" alt="HTMl" /> <a href="http://foundation.zurb.com/"><img src="./img/foundation.png" alt="Foundation4" /></a> <img src="./img/css.png" alt="CSS" /> <img src="./img/js.png" alt="JS" />
 		<p style="margin: 0;">&copy; 2013 SpaceEngine by Julien Bernard.</p>
 	</footer>
 	
