@@ -38,8 +38,8 @@ class Engine implements IEngine {
 			$Template->startTemplate('./template/footer.connect.php', $Template);
 		}
 		else if( Engine::isAdmin() ) {
-			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
-			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
+			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');
+			$Engine->setViewPath('./Views/'.strtolower($namePage).'.admin.php');
 			$Template->startTemplate('./template/header.admin.php', $Template);
 			include_once($this->_controllerPath);
 			$Template->startTemplate('./template/footer.admin.php', $Template);
