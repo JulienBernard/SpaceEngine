@@ -60,7 +60,7 @@
 	
 		<a href="https://github.com/JulienBernard/SpaceEngine" class="alert button radius">Source</a>
 		<a href="" class="success button radius">Download the latest version (1.0)</a>
-		<a href="" class="button radius">Try it!</a>
+		<a href="" class="button radius" data-reveal-id="loginModal">Try it!</a>
 	
 		<nav class="navigation">
 			<a href="#" class="toWhat">What, Why, Who</a><a href="#" class="toTutorial">Getting started</a><a href="#" class="toFollow">Follow / Fork</a>
