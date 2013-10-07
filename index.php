@@ -9,7 +9,7 @@
 	
 	/* Le namePage permet d'identifier votre page. Il doit être être écrit en minuscule et tenir en un seul mot.
 	 */
-	$namePage = "accueil";
+	$namePage = "index";
 	
 	/* Appel du moteur [ne pas modifier] */
 	include_once("./config.php");

@@ -8,6 +8,8 @@
 				</span>
 				<h1><img src="./img/home.png" /> What</h1>
 				<p>
+					<?php var_dump( User::generateUniqueToken(2)); ?>
+
 					The name "SpaceEngine" represent a free engine for your website.</p>
 				<p>
 					It's coded in PHP5 object, using Foundation 4 (HTML Framework) and it's very simple to use for anyone!
@@ -70,4 +72,39 @@
 	<ul id="drop1" class="f-dropdown content" data-dropdown-content>
 		<h6>Not available yet!</h6>
 	</ul>
+
+	<div id="loginModal" class="reveal-modal">
+		<h2>Awesome login page!</h2>
+		<p class="lead">Hey! Thanks you to try the SpaceEngine, you'll see: it's very simple to use it!</p>
+		<p>
+			Please enter your login and your password. For the demo, please use: "demo" & "demo".
+		</p>
+		
+		<form action="index.php" method="POST">
+			<div class="row">
+				<div class="large-4 columns">
+					<label for="usr">Your username</label>
+					<input id="usr" type="text" name="username" placeholder="Username" />
+				</div>
+				<div class="large-4 columns">
+					<label for="pwd">Your password</label>
+					<input id="pwd" type="password" name="password" placeholder="Password" />
+				</div>
+				<div class="large-4 columns">
+					<br />
+					<input class="small button" type="submit" name="login" value="Log me" />
+				</div>
+			</div>
+		</form>
+		
+		<div class="panel">
+			<p class="lead">1. Secured Connection</p>
+			<p>
+				For every connection, a secret token is created and sent on the database.<br />
+				Thereby, the session (which on only keeps the user ID) cannot get hacked by simple values updates. You can even add a captcha if you would like to!
+			</p>
+		</div>
+
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
 	

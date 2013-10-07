@@ -1,25 +1,25 @@
 	<?php
 
 	include_once(PATH_MODELS."myPDO.class.php");
-	include_once(PATH_MODELS."presentation.class.php");
+	include_once(PATH_MODELS."user.class.php");
 		
-	$presentation = new Presentation();
 	
 	/* Une action sur un formulaire (envoie par POST) a été effectuée.  */
 	if( isset($_POST) ) {
 		
 		if( isset($_POST['connection']) ) {
-			$fields = array('login' => $_POST['login'], 'password' => $_POST['password']);
+			$fields = array('username' => $_POST['username'], 'password' => $_POST['password']);
 			$return = $Engine->checkParams($fields);
 			if( $return == 1 ) {
-				$login = (String)$_POST['login'];
+				$username = (String)$_POST['username'];
 				$password = (String)$_POST['password'];
 				
 				include_once(PATH_MODELS."user.class.php");
 				
-				if( User::checkConnection( $login, $password ) )
+				if( $id = User::checkConnection( $username, $password ) )
 				{
-					$Engine->createSession("SpaceEngineConnected", true);
+					$Engine->createSession("SpaceEngineConnected", $id);
+					$Engine->createSession("SpaceEngineToken", true);
 					header("location: index.php");
 				}
 				else
