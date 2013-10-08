@@ -23,19 +23,6 @@ class User
 	}
 	
 	/**
-	 * Vérifie si le login et le password sont exactes. Attention, dans cet exemple le mdp est en clair (bouhhhh ^^) 
-	 * @param String login
-	 * @param String password
-	 * @return Id de l'utilisateur
-	 */
-	public static function checkConnection( $login, $password ) {
-		if( (String)$login == "demo" && (String)$password == "demo" )
-			return 1;
-		else
-			return 0;
-	}
-	
-	/**
 	 * Vérifie si l'username et le password sont exactes. 
 	 * @param String username
 	 * @param String password
