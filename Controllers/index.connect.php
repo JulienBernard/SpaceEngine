@@ -1,27 +1,4 @@
-	<?php
-
-	include_once(PATH_MODELS."myPDO.class.php");
-	include_once(PATH_MODELS."presentation.class.php");
-		
-	$presentation = new Presentation();
-	
-	/* Une action sur un formulaire (envoie par POST) a été effectuée.  */
-	if( isset($_POST) ) {
-		if( isset($_POST['retrieveText']) ) {
-			$presentation->retrieveText();
-		}
-		if( isset($_POST['logout']) ) {
-			$Engine->destroySession("SpaceEngineConnected");
-			$Engine->destroySession("SpaceEngineAdmin");
-			session_destroy();
-			header("location: index.php");
-		}
-		
-		if( isset($_POST['updateText']) ) {
-			$text = (String)$_POST['text'];
-			$presentation->setTextFromDatabase( $text, $presentation->getId() );
-		}
-	}
+<?php
 
 	/* Inclusion de la vue */
 	include_once( $Engine->getViewPath() );

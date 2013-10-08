@@ -47,21 +47,23 @@
 </head>
 
 <body>
+	<!--
+	<p>
+			<span id="SmallOne">JULIEN BERNARD présente SpaceEngine, un moteur web imaginé pour <a href="http://www.apocalyspace.fr">www.apocalyspace.fr</a></span>
+			SpaceEngine : moteur de site internet, simple et rapide !<br />
+			<span id="SmallTwo">PHP5 - ORIENTE OBJET - PDO - PATTERN MVC</span>
+		</p>
+		-->
+	<header id="header">
+		<h1>SpaceEngine</h1>
+		<p>A FREE AND OPEN-SOURCE ENGINE, FOR PHP5 WEBSITE</p>
 	
-	<section>
-		<header id="Top">
-			<p>
-				<span id="SmallOne">JULIEN BERNARD présente SpaceEngine, un moteur web imaginé pour <a href="http://www.apocalyspace.fr" style="color: white;">www.apocalyspace.fr</a></span>
-				SpaceEngine : moteur de site internet, simple et rapide !<br />
-				<span id="SmallTwo">PHP5 - ORIENTE OBJET - PDO - PATTERN MVC</span>
-			</p>
-		</header>
-		
-		<article id="Link">
-			<a href="index.php">Présentation</a> - <a href="http://jibidev.fr/a-propos">Auteur</a>
-		</article>
-	</section>
+		<a href="https://github.com/JulienBernard/SpaceEngine" class="alert button radius">Source</a>
+		<a href="" class="success button radius">Download the latest version (1.0)</a>
+		<a href="" class="button radius">Logout!</a>
+	
+		<nav class="navigation">
+			<a href="#" class="toWhat">What, Why, Who</a><a href="#" class="toTutorial">Getting started</a><a href="#" class="toFollow">Follow / Fork</a>
+		</nav>
+	</header>
 
-	<section class="Body">		
-		
-	

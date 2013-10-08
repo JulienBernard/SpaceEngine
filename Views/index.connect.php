@@ -1,21 +1,18 @@
 
-	<header>
-		<h1>PRESENTATION</h1>
-	</header>
+	<main id="main">
+		<section class="primary what">
+			<article class="article">
+				<span class="fast-link">
+					<a href="#" class="toTop"><img src="./img/up.png" alt="Previous" /></a>
+					<a href="#" class="toWhy"><img src="./img/down.png" alt="Next" /></a>
+				</span>
+				<h1><img src="./img/home.png" /> Connected</h1>
+				<p>
+					vous êtes connecté.
+				</p>
+
+			</article>
+		</section>
+	</main>
 	
-	<article>
-		<p>
-			<?php echo nl2br($presentation->getText()); ?>
-		</p>
-		<form action="index.php" method="POST">
-			<input type="submit" name="retrieveText" value="Récuperer le texte" />
-			<input type="submit" name="logout" value="Déconnexion" />
-		</form>
-		<br />
-		<h2>Modifier ce texte via PDO :</h2>
-		<form action="index.php" method="POST">
-			<textarea name="text" cols="96" rows="6"><?php echo $presentation->getText(); ?></textarea>
-			<input type="submit" name="updateText" value="Modifier" />
-		</form>
-	</article>
 	

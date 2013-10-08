@@ -8,8 +8,6 @@
 				</span>
 				<h1><img src="./img/home.png" /> What</h1>
 				<p>
-					<?php var_dump( User::generateUniqueToken(2)); ?>
-
 					The name "SpaceEngine" represent a free engine for your website.</p>
 				<p>
 					It's coded in PHP5 object, using Foundation 4 (HTML Framework) and it's very simple to use for anyone!
@@ -106,5 +104,25 @@
 		</div>
 
 		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	<div id="Modal" class="reveal-modal">
+		<?php
+			if( $Engine->getError() != null )
+			{
+				echo '<p class="lead">An error has been detected!</p>';
+				echo '<p>'.$Engine->getError().'</p>';
+			}
+			else if( $Engine->getSuccess() != null )
+			{
+				echo '<p class="lead">Success!</p>';
+				echo $Engine->getSuccess();
+			}
+			else if( $Engine->getInfo() != null )
+			{
+				echo '<p class="lead">Informations:</p>';
+				echo $Engine->getInfo();
+			}
+		?>
 	</div>
 	
