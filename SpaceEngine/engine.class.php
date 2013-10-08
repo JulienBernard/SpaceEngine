@@ -51,15 +51,25 @@ class Engine implements IEngine {
 			include_once($this->_controllerPath);
 			$Template->startTemplate('./template/footer.php', $Template);
 		}
-
 	}
 	
 	/**
-	 * Vérifie si l'utilisateur est connecté (système de session)
+	 * Vérifie si l'utilisateur est connecté (système de session). Vérifie ensuite si le token de l'utilisateur est bien celui de CET utilisateur dans la bdd.
 	 */
 	public static function isConnected() {
-		if( !empty($_SESSION['SpaceEngineConnected']) && $_SESSION['SpaceEngineConnected'] == true )
-			return true;
+		if( !empty($_SESSION['SpaceEngineConnected']) && $_SESSION['SpaceEngineConnected'] != 0 )
+		{
+			if( !empty($_SESSION['SpaceEngineToken']) && count($_SESSION['SpaceEngineToken']) > 0)
+			{
+				include_once(PATH_MODELS."myPDO.class.php");
+				include_once(PATH_MODELS."user.class.php");
+				
+				if( User::checkUserTokenMatch( $_SESSION['SpaceEngineToken'], $_SESSION['SpaceEngineConnected'] ) )
+					return true;
+				else
+					return false;
+			}
+		}
 		else
 			return false;
 	}
