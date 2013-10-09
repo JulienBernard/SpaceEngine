@@ -17,40 +17,21 @@
 				$faction = (String)null;			
 				
 				/* Cet username n'est pas déjà attribué à un autre joueur. */
-				if( User::checkUsernameExist( $username ) )
-				{
-					/* Check des tailles (vérifications) */
-					if( User::checkUsernameLength( $username, 2 ) && User::checkPasswordLength( $password, 2 ))
-					{
-						/* Check si le compte existe (correspondances du pseudo/mdp) */
-						if( $userId = User::checkUserAccountMatch( $username, $password ) )																			// TODO: ajoute sécurité mdp (chiffrage/cryptage)
-						{
-							/* Destruction de la session au cas où ! */
-							$Engine->destroySession("SpaceEngineConnected");
-							$Engine->destroySession("SpaceEngineToken");
-							/* Enregistrement de l'ID dans une session. */
-							$token = User::generateUniqueToken(2);
-							if( $token != false ) {
-								if( User::updateToken( $token, $userId ) ) 
-								{
-									$Engine->createSession("SpaceEngineConnected", (int)$userId);
-									$Engine->createSession("SpaceEngineToken", $token );
-									$Engine->setSuccess("<span class='bold'>Connexion réussie.</span><br /><a style='color: black;' href='index.connect.php'>Si la redirection ne se fait pas, cliquez ici</a> !");
-								}
-								else 
-									$Engine->setError("Une importante erreur est survenue : impossible de mettre à jour le token sécurisé !");
-							}
-							else 
-								$Engine->setError("Une importante erreur est survenue : impossible de générer un token sécurisé !");
-						}
-						else
-							$Engine->setError("Votre PSEUDONYME ou votre MOT DE PASSE ne correspondent pas.");
-					}
-					else
-						$Engine->setError("Votre PSEUDONYME doit être supérieur à 3 caractères et être inférieur à 20 caractères.<br />Votre MOT DE PASSE doit être supérieur à 3 caractères.");
-				}
-				else
+				$login = User::checkLogin( $username, $password );
+				if( $login == 1 )
+					$Engine->setSuccess("<span class='bold'>Connexion réussie.</span><br /><a style='color: black;' href='index.connect.php'>Si la redirection ne se fait pas, cliquez ici</a> !");
+				else if( $login == 0 )
+					$Engine->setInfo("Une erreur important est survenu, merci de contacter l'administrateur du site.");
+				else if( $login == -1 )
 					$Engine->setError("Ce PSEUDONYME n'existe pas dans notre base de données.");
+				else if( $login == -2 )
+					$Engine->setError("Votre PSEUDONYME doit être supérieur à 3 caractères et être inférieur à 20 caractères.<br />Votre MOT DE PASSE doit être supérieur à 3 caractères.");
+				else if( $login == -3 )
+					$Engine->setError("Votre PSEUDONYME ou votre MOT DE PASSE ne correspondent pas.");
+				else if( $login == -4 )
+					$Engine->setError("Une importante erreur est survenue : impossible de générer un token sécurisé !");
+					
+				$Engine->setInfo("Valeur:".$login);
 			}
 			else
 				$Engine->setInfo("Un des champs est vide.");

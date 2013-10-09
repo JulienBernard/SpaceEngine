@@ -23,12 +23,56 @@ class User
 	}
 	
 	/**
+	 * Vérifie si la connexion d'un utilisateur peut se faire. Renvoie différente erreur si une erreur en ressort.
+	 * @param String username
+	 * @param String password
+	 * @return
+	 *	1	: Connexion correcte, l'utilisateur est connecté.
+	 *	0	: Une erreur importante est apparue
+	 *	-1	: L'utilisateur n'existe pas
+	 *	-2	: La taille de l'utilisateur ou du mot de passe est inférieur/supérieur à x caractères (défaut 2)
+	 *	-3	: Le mot de passe ne correspond pas à cet utilisateur
+	 *	-4	: Impossible de générer un token sécurisé !
+	 */
+	public static function checkLogin( $username, $password ) {
+		/* Validation des paramètres */
+		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
+			return 0;
+			
+		if( self::checkUsernameExist($username) ) {
+			if( self::checkUsernameLength($username, 2, 20) && self::checkPasswordLength($password, 2) ) {
+				if( $userId = self::checkUserAccountMatch($username,$password) ) {
+					/* Destruction de la session au cas où ! */
+					$Engine->destroySession("SpaceEngineConnected");
+					$Engine->destroySession("SpaceEngineToken");
+					/* Création du token unique pour la session de l'utilisateur */
+					$token = User::generateUniqueToken(2);
+					if( $token != false ) {
+						if( User::updateToken( $token, $userId ) ) 
+						{
+							$Engine->createSession("SpaceEngineConnected", (int)$userId);
+							$Engine->createSession("SpaceEngineToken", $token );
+							return 1; // Succès !
+						}
+						else 
+							return 0; // Impossible de mettre à jour le token ! (plus de token de libre, problème de création du token ?)
+					} else 
+						return -4;
+				} else
+					return -3;
+			} else
+				return -2;
+		} else
+			return -1;
+	}	
+	
+	/**
 	 * Vérifie si l'username et le password sont exactes. 
 	 * @param String username
 	 * @param String password
 	 * @return id de l'utilisateur ou 0 (erreur)
 	 */
-	public static function checkUserAccountMatch( $username, $password ) {
+	private function checkUserAccountMatch( $username, $password ) {
 		
 		/* Validation des paramètres */
 		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
@@ -53,7 +97,7 @@ class User
 	 * Vérifie si l'username existe dans la bdd.
 	 * @param String username
 	 */
-	public static function checkUsernameExist( $username ) {
+	private function checkUsernameExist( $username ) {
 		
 		/* Validation des paramètres */
 		if( !is_string($username) || empty($username) )
@@ -97,13 +141,13 @@ class User
 	 * @param int nbChar
 	 * @return a string if it's ok, false it's not.
 	 */
-	public static function generateUniqueToken( $nbChar = 2 ) {
+	private function generateUniqueToken( $nbChar = 2 ) {
 		if( !filter_var($nbChar, FILTER_VALIDATE_INT) ) {
 			throw new Exception('You must provide an integer value!');
 		}
 		
 		$str = substr(crypt(uniqid(mt_rand(), true), 0), $nbChar);
-		return self::ckeckTokenExisted($str);
+		return ckeckTokenExisted($str);
 	}
 	
 	/**
@@ -111,14 +155,14 @@ class User
 	 * @param String token
 	 * @return String
 	 */
-	private static function ckeckTokenExisted( $token ) {
+	private function ckeckTokenExisted( $token ) {
 		$sql = MyPDO::get();
 		$rq = $sql->prepare('SELECT id FROM users WHERE token=:token');
 		$data = array(':token' => (String)$token);
 		$rq->execute($data);
 		
 		if( $rq->rowCount() != 0)
-			return self::generateUniqueToken(2);
+			return generateUniqueToken(2);
 		else
 			return $token;
 	}
@@ -156,7 +200,7 @@ class User
 	 * @param int id
 	 * @return true or false
 	 */
-	public static function updateToken( $token, $id ) {
+	private function updateToken( $token, $id ) {
 		$sql = MyPDO::get();
 		$rq = $sql->prepare('UPDATE users SET token=:token WHERE id=:id');
         $data = array(':id' => $id, ':token' => $token);
