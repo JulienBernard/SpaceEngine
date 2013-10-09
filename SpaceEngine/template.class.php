@@ -13,7 +13,14 @@ class Template implements ITemplate {
 	/**
 	 * Inclusion du fichier selon son chemin d'accès ($path)
 	 */
-	public function startTemplate( $path, $Template ) {			
+	public function startTemplate( $path, $Template ) {
+		$lang = 'fr';
+		if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'fr' )
+			$lang = 'fr';
+		else if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'en' )
+			$lang = 'en';
+			
+		include_once("./lang/".$lang.".php");
 		include_once( $path );
 	}
 	

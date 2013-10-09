@@ -29,6 +29,9 @@ class Engine implements IEngine {
 	 * Charge le moteur selon l'activité de l'utilisateur : connecté, admin ou visiteur.
 	 */
 	public function startEngine( $Engine, $Template ) {
+		if( isset($_GET['lang']) && !empty($_GET['lang']) && is_string($_GET['lang']) )
+			$_SESSION['SpaceEngineLanguage'] = $_GET['lang'];
+	
 		$namePage = $this->_namePage;
 		if( Engine::isConnected() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');

@@ -55,6 +55,12 @@
 		</p>
 		-->
 	<header id="header">
+		<?php
+		if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'en' )
+			echo '<a href="?lang=fr" class="button radius">Hey, je suis Français !</a>';
+		else
+			echo '<a href="?lang=en" class="button radius">Hey, I am English!</a>';
+		?>
 		<h1>SpaceEngine</h1>
 		<p>A FREE AND OPEN-SOURCE ENGINE, FOR PHP5 WEBSITE</p>
 	
@@ -63,7 +69,7 @@
 		<a href="" class="button radius" data-reveal-id="loginModal">Try it!</a>
 	
 		<nav class="navigation">
-			<a href="#" class="toWhat">What, Why, Who</a><a href="#" class="toTutorial">Getting started</a><a href="#" class="toFollow">Follow / Fork</a>
+			<a href="#" class="toWhat"><?php echo $navigation["link1"]; ?></a><a href="#" class="toTutorial"><?php echo $navigation["link2"]; ?></a><a href="#" class="toFollow"><?php echo $navigation["link3"]; ?></a>
 		</nav>
 	</header>
 
