@@ -32,27 +32,36 @@ class Engine implements IEngine {
 		if( isset($_GET['lang']) && !empty($_GET['lang']) && is_string($_GET['lang']) )
 			$_SESSION['SpaceEngineLanguage'] = $_GET['lang'];
 	
+		$lang = 'fr';
+		if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'fr' )
+			$lang = 'fr';
+		else if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'en' )
+			$lang = 'en';
+			
+		include_once(PATH_MODELS."language.class.php");
+		$Lang = new Language( $lang );
+	
 		$namePage = $this->_namePage;
 		if( Engine::isConnected() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
-			$Template->startTemplate('./template/header.connect.php', $Template);
+			$Template->startTemplate('./template/header.connect.php', $Template, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.connect.php', $Template);
+			$Template->startTemplate('./template/footer.connect.php', $Template, $Lang);
 		}
 		else if( Engine::isAdmin() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
-			$Template->startTemplate('./template/header.admin.php', $Template);
+			$Template->startTemplate('./template/header.admin.php', $Template, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.admin.php', $Template);
+			$Template->startTemplate('./template/footer.admin.php', $Template, $Lang);
 		}
 		else {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.php');
-			$Template->startTemplate('./template/header.php', $Template);
+			$Template->startTemplate('./template/header.php', $Template, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.php', $Template);
+			$Template->startTemplate('./template/footer.php', $Template, $Lang);
 		}
 	}
 	
