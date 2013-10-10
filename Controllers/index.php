@@ -19,25 +19,23 @@
 				/* Cet username n'est pas déjà attribué à un autre joueur. */
 				$login = User::checkLogin( $username, $password );
 				if( $login == 1 )
-					$Engine->setSuccess("<span class='bold'>Connexion réussie.</span><br /><a style='color: black;' href='index.connect.php'>Si la redirection ne se fait pas, cliquez ici</a> !");
+					$Engine->setSuccess($error['loginSuccess']);
 				else if( $login == 0 )
-					$Engine->setInfo("Une erreur important est survenu, merci de contacter l'administrateur du site.");
+					$Engine->setError($Lang->getErrorText()['loginError']);
 				else if( $login == -1 )
-					$Engine->setError("Ce PSEUDONYME n'existe pas dans notre base de données.");
+					$Engine->setError($Lang->getErrorText()['loginError1']);
 				else if( $login == -2 )
-					$Engine->setError("Votre PSEUDONYME doit être supérieur à 3 caractères et être inférieur à 20 caractères.<br />Votre MOT DE PASSE doit être supérieur à 3 caractères.");
+					$Engine->setError($Lang->getErrorText()['loginError2']);
 				else if( $login == -3 )
-					$Engine->setError("Votre PSEUDONYME ou votre MOT DE PASSE ne correspondent pas.");
+					$Engine->setError($Lang->getErrorText()['loginError3']);
 				else if( $login == -4 )
-					$Engine->setError("Une importante erreur est survenue : impossible de générer un token sécurisé !");
-					
-				$Engine->setInfo("Valeur:".$login);
+					$Engine->setError($Lang->getErrorText()['loginError4']);
 			}
 			else
 				$Engine->setInfo("Un des champs est vide.");
 		}
 	}
-	
+		
 	if( $Engine->getError() != null || $Engine->getSuccess() != null || $Engine->getInfo() != null )
 	{
 		?>

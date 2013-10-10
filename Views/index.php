@@ -133,6 +133,7 @@
 			{
 				echo '<p class="lead">Informations:</p>';
 				echo $Engine->getInfo();
+				echo '<p class="center"><a style="color: #666;" href="" data-reveal-id="loginModal">Retry</a></p>';
 			}
 		?>
 	</div>

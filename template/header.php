@@ -69,7 +69,7 @@
 		<a href="" class="button radius" data-reveal-id="loginModal">Try it!</a>
 	
 		<nav class="navigation">
-			<a class="toWhat"><?php echo $navigation["link1"]; ?></a><a class="toTutorial"><?php echo $navigation["link2"]; ?></a><a class="toFollow"><?php echo $navigation["link3"]; ?></a>
+			<a class="toWhat"><?php echo $Lang->getNavigationText()['link1']; ?></a><a class="toTutorial"><?php echo $Lang->getNavigationText()['link2']; ?></a><a class="toFollow"><?php echo $Lang->getNavigationText()['link3']; ?></a>
 		</nav>
 	</header>
 

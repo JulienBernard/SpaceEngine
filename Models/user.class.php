@@ -72,7 +72,7 @@ class User
 	 * @param String password
 	 * @return id de l'utilisateur ou 0 (erreur)
 	 */
-	private function checkUserAccountMatch( $username, $password ) {
+	private static function checkUserAccountMatch( $username, $password ) {
 		
 		/* Validation des paramètres */
 		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
@@ -97,7 +97,7 @@ class User
 	 * Vérifie si l'username existe dans la bdd.
 	 * @param String username
 	 */
-	private function checkUsernameExist( $username ) {
+	private static function checkUsernameExist( $username ) {
 		
 		/* Validation des paramètres */
 		if( !is_string($username) || empty($username) )
