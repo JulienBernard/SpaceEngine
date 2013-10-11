@@ -9,7 +9,7 @@
 	
 	/* Le namePage permet d'identifier votre page. Il doit être être écrit en minuscule et tenir en un seul mot.
 	 */
-	$namePage = "index";
+	$namePage = "logout";
 	
 	/* Appel du moteur [ne pas modifier] */
 	include_once("./config.php");
@@ -18,12 +18,13 @@
 	$Template = new Template();
 	
 	/* Informations sur la page [valeurs à modifier] */
-	$Template->setTitle("Accueil");
+	$Template->setTitle("Déconnexion");
 	$Template->setDescription("Site propulsé par le SpaceEngine ! SpaceEngine Copyright (C) 2013 Julien Bernard - SpaceEngine is a free website engine under GPL license!");
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.min.css");
 	$Template->addSCript("jquery.min.js");
-	
+	$Template->addSCript("redirection.js");
+
 	/* Lancement du moteur [ne pas modifier] */
 	$Engine->startEngine( $Engine, $Template );
 ?>

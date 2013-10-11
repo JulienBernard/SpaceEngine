@@ -25,7 +25,7 @@
 						Try the administration panel! Log off and try to connect yourself with a admin or a super admin account :)
 					</p>
 					<p>
-						<a href="" class="alert small button center">Logout</a>
+						<a href="./logout.php" class="alert small button center">Logout</a>
 					</p>
 				</div>
 			</article>

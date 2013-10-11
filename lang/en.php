@@ -11,7 +11,7 @@
 	$navigation["connectedLink2"] = "Follow / Fork";
 
 	/* error */
-	$error["loginSuccess"] = "Success! <a style='color: black;' href='index.connect.php'>Click here if the redirection doesn't work.</a> !";
+	$error["loginSuccess"] = "Success! <a style='color: black;' href='index.php'>Click here if the redirection doesn't work.</a> !";
 	$error["loginError"] = "An error has been detected, please contact the administrator.";
 	$error["loginError1"] = "This USERNAME doesn't exist.";
 	$error["loginError2"] = "Your USERNAME must be greater than 3 characters and less than 20 characters.<br />Your PASSWORD must be greater than 3 characters.";

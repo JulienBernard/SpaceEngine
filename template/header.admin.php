@@ -104,7 +104,7 @@
 				<a class="button" target="_blank" href="index.php?visitor">Go to the website</a>
 			</li>
 			<li class="has-form">
-				<a class="button alert" href="#">Quit and logout</a>
+				<a class="button alert" href="logout.php">Quit and logout</a>
 			</li>
 		</ul>
 	</section>

@@ -19,8 +19,10 @@
 				/* Cet username n'est pas déjà attribué à un autre joueur. */
 				$login = User::checkLogin( $username, $password );
 				$l = $Lang->getErrorText();
-				if( $login == 1 )
+				if( $login == 1 ) {
 					$Engine->setSuccess($l['loginSuccess']);
+					?><script type="text/javascript">redirection(3, 'index.php');</script><?php
+				}
 				else if( $login == 0 )
 					$Engine->setError($l['loginError']);
 				else if( $login == -1 )

@@ -23,6 +23,7 @@
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.min.css");
 	$Template->addSCript("jquery.min.js");
+	$Template->addSCript("redirection.js");
 	
 	/* Lancement du moteur [ne pas modifier] */
 	$Engine->startEngine( $Engine, $Template );
