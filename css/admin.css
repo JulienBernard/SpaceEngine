@@ -1,0 +1,54 @@
+/* style.css par Julien Bernard le 11/10/13 */
+
+html {
+	height: 100%;
+	background-color: #ededed;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background-color: #ededed;
+}
+
+@font-face{
+	font-family: 'MALGUN';
+	src: url('malgun.eot');
+	src: url('malgun.eot?#iefix') format('embedded-opentype'),
+		url('malgun.woff') format('woff'),
+		url('malgun.ttf') format('truetype'),
+		url('malgun.svg#webfont') format('svg');
+}
+
+#main {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#footer {
+	width: 50%;
+	margin: auto;
+	text-align: center;
+	border-top: 1px solid #7f8c8d;
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: MALGUN;
+	color: #2c3e50;
+}
+
+a {
+	color: #2980b9;
+}
+
+.center {
+	display: block;
+	margin: 0;
+	text-align: center;
+}
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
