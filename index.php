@@ -22,7 +22,6 @@
 	$Template->setDescription("Site propulsé par le SpaceEngine ! SpaceEngine Copyright (C) 2013 Julien Bernard - SpaceEngine is a free website engine under GPL license!");
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.min.css");
-	$Template->addCss("style.css");
 	$Template->addSCript("jquery.min.js");
 	
 	/* Lancement du moteur [ne pas modifier] */

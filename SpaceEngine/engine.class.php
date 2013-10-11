@@ -42,21 +42,32 @@ class Engine implements IEngine {
 		$Lang = new Language( $lang );
 	
 		$namePage = $this->_namePage;
-		if( Engine::isConnected() ) {
+		if( isset($_GET['visitor']) ) {
+			$Template->addCss("style.css");
+			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.php');
+			$Engine->setViewPath('./Views/'.strtolower($namePage).'.php');
+			$Template->startTemplate('./template/header.php', $Template, $Lang);
+			include_once($this->_controllerPath);
+			$Template->startTemplate('./template/footer.php', $Template, $Lang);
+		}
+		else if( Engine::isAdmin() ) {
+			$Template->addCss("admin.css");
+			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');
+			$Engine->setViewPath('./Views/'.strtolower($namePage).'.admin.php');
+			$Template->startTemplate('./template/header.admin.php', $Template, $Lang);
+			include_once($this->_controllerPath);
+			$Template->startTemplate('./template/footer.admin.php', $Template, $Lang);
+		}
+		else if( Engine::isConnected() ) {
+			$Template->addCss("style.css");
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
 			$Template->startTemplate('./template/header.connect.php', $Template, $Lang);
 			include_once($this->_controllerPath);
 			$Template->startTemplate('./template/footer.connect.php', $Template, $Lang);
 		}
-		else if( Engine::isAdmin() ) {
-			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
-			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
-			$Template->startTemplate('./template/header.admin.php', $Template, $Lang);
-			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.admin.php', $Template, $Lang);
-		}
 		else {
+			$Template->addCss("style.css");
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.php');
 			$Template->startTemplate('./template/header.php', $Template, $Lang);
@@ -66,7 +77,8 @@ class Engine implements IEngine {
 	}
 	
 	/**
-	 * Vérifie si l'utilisateur est connecté (système de session). Vérifie ensuite si le token de l'utilisateur est bien celui de CET utilisateur dans la bdd.
+	 * Vérifie si l'utilisateur est connecté (système de session).
+	 * Vérifie ensuite si le token de l'utilisateur est bien celui de CET utilisateur dans la bdd.
 	 */
 	public static function isConnected() {
 		if( !empty($_SESSION['SpaceEngineConnected']) && $_SESSION['SpaceEngineConnected'] != 0 )
@@ -90,8 +102,18 @@ class Engine implements IEngine {
 	 * Vérifie si l'utilisateur est connecté en tant qu'admin (système de session)
 	 */
 	public static function isAdmin() {
-		if( !empty($_SESSION['SpaceEngineAdmin']) && $_SESSION['SpaceEngineAdmin'] == true )
-			return true;
+		if( Engine::isConnected() )
+		{
+			if( $rank = User::getUserRank( $_SESSION['SpaceEngineConnected'] ) )
+			{
+				if( $rank == ADMIN || $rank == SUPER_ADMIN )
+					return true;
+				else
+					return false;
+			}
+			else
+				return false;
+		}
 		else
 			return false;
 	}

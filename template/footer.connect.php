@@ -21,26 +21,14 @@
 		})
 		
 		$(document).ready( function () {
-			$('.toHome').click(function() {
-				$('html,body').animate({scrollTop: $(".home").offset().top}, 'slow');
-			});
-			$('.toTutorial').click(function() {
-				$('html,body').animate({scrollTop: $(".tutorial").offset().top}, 'slow');
+			$('.toConnected').click(function() {
+				$('html,body').animate({scrollTop: $(".connected").offset().top}, 'slow');
 			});
 			$('.toFollow').click(function() {
 				$('html,body').animate({scrollTop: $(".follow").offset().top}, 'slow');
 			});
 			$('.toTop').click(function() {
 				$('html,body').animate({scrollTop: $("#header").offset().top}, 'slow');
-			});
-			$('.toWhat').click(function() {
-				$('html,body').animate({scrollTop: $(".what").offset().top}, 'slow');
-			});
-			$('.toWhy').click(function() {
-				$('html,body').animate({scrollTop: $(".why").offset().top}, 'slow');
-			});
-			$('.toWho').click(function() {
-				$('html,body').animate({scrollTop: $(".who").offset().top}, 'slow');
 			});
 		})
 	</script>	

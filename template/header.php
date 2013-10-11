@@ -47,13 +47,6 @@
 </head>
 
 <body>
-	<!--
-	<p>
-			<span id="SmallOne">JULIEN BERNARD présente SpaceEngine, un moteur web imaginé pour <a href="http://www.apocalyspace.fr">www.apocalyspace.fr</a></span>
-			SpaceEngine : moteur de site internet, simple et rapide !<br />
-			<span id="SmallTwo">PHP5 - ORIENTE OBJET - PDO - PATTERN MVC</span>
-		</p>
-		-->
 	<header id="header">
 		<?php
 		if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'en' )
@@ -69,7 +62,7 @@
 		<a href="" class="button radius" data-reveal-id="loginModal">Try it!</a>
 	
 		<nav class="navigation">
-			<a class="toWhat"><?php echo $Lang->getNavigationText()['link1']; ?></a><a class="toTutorial"><?php echo $Lang->getNavigationText()['link2']; ?></a><a class="toFollow"><?php echo $Lang->getNavigationText()['link3']; ?></a>
+			<a class="toWhat"><?php echo $Lang->getNavigationText('link1'); ?></a><a class="toTutorial"><?php echo $Lang->getNavigationText('link2'); ?></a><a class="toFollow"><?php echo $Lang->getNavigationText('link3'); ?></a>
 		</nav>
 	</header>
 

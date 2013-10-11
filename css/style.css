@@ -1,4 +1,4 @@
-/* style.css par Julien Bernard le 20/03/12 */
+/* style.css par Julien Bernard le 11/10/13 */
 
 html {
 	height: 100%;
@@ -18,7 +18,7 @@ body {
 		url('malgun.woff') format('woff'),
 		url('malgun.ttf') format('truetype'),
 		url('malgun.svg#webfont') format('svg');
-	}
+}
 
 a {
 	text-decoration: none;
@@ -218,10 +218,17 @@ ul {
 	margin: 0;
 	text-align: center;
 }
-
 .bold {
 	font-weight: bold;
 }
 .italic {
 	font-style: italic;
 }
+
+.blue-panel {
+	width: 82%;
+	background: #3498db;
+}
+	.blue-panel p {
+		color: white;
+	}

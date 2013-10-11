@@ -7,7 +7,9 @@
 	$navigation["link1"] = "What, Why, Who";
 	$navigation["link2"] = "Getting started";
 	$navigation["link3"] = "Follow / Fork";
-	
+	$navigation["connectedLink1"] = "You are connected! And now?";
+	$navigation["connectedLink2"] = "Follow / Fork";
+
 	/* error */
 	$error["loginSuccess"] = "Success! <a style='color: black;' href='index.connect.php'>Click here if the redirection doesn't work.</a> !";
 	$error["loginError"] = "An error has been detected, please contact the administrator.";

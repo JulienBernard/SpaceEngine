@@ -17,8 +17,11 @@ class Language
 		include('./lang/'.$this->_lang.'.php');
 		$this->_navigation = $navigation;
 	}
-	public function getNavigationText() {
-		return $this->_navigation;
+	public function getNavigationText( $str ) {
+		if( array_key_exists( $str, $this->_navigation ) )
+			return $this->_navigation[$str];
+		else
+			return "<span style='font-size: 12px;'>[Translation not found]</span>";
 	}
 	
 	private function setErrorText() {

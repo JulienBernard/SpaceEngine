@@ -48,22 +48,28 @@
 
 <body>
 	<!--
-	<p>
+		<p>
 			<span id="SmallOne">JULIEN BERNARD présente SpaceEngine, un moteur web imaginé pour <a href="http://www.apocalyspace.fr">www.apocalyspace.fr</a></span>
 			SpaceEngine : moteur de site internet, simple et rapide !<br />
 			<span id="SmallTwo">PHP5 - ORIENTE OBJET - PDO - PATTERN MVC</span>
 		</p>
 		-->
 	<header id="header">
+		<?php
+		if( isset($_SESSION['SpaceEngineLanguage']) && $_SESSION['SpaceEngineLanguage'] == 'en' )
+			echo '<a href="?lang=fr" class="button radius">Hey, je suis Français !</a>';
+		else
+			echo '<a href="?lang=en" class="button radius">Hey, I am English!</a>';
+		?>
 		<h1>SpaceEngine</h1>
 		<p>A FREE AND OPEN-SOURCE ENGINE, FOR PHP5 WEBSITE</p>
 	
 		<a href="https://github.com/JulienBernard/SpaceEngine" class="alert button radius">Source</a>
 		<a href="" class="success button radius">Download the latest version (1.0)</a>
-		<a href="" class="button radius">Logout!</a>
+		<a href="" class="button radius" data-reveal-id="loginModal">Try it!</a>
 	
 		<nav class="navigation">
-			<a href="#" class="toWhat">What, Why, Who</a><a href="#" class="toTutorial">Getting started</a><a href="#" class="toFollow">Follow / Fork</a>
+			<a class="toConnected"><?php echo $Lang->getNavigationText('connectedLink1'); ?></a><a class="toFollow"><?php echo $Lang->getNavigationText('connectedLink2'); ?></a>
 		</nav>
 	</header>
 

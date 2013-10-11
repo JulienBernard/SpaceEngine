@@ -35,6 +35,7 @@ class User
 	 *	-4	: Impossible de générer un token sécurisé !
 	 */
 	public static function checkLogin( $username, $password ) {
+		$Engine = new Engine( "bidon" );
 		/* Validation des paramètres */
 		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
 			return 0;
@@ -137,6 +138,26 @@ class User
 	}
 	
 	/**
+	 * Retourne le rang de l'utilisateur.
+	 * @param int id
+	 * @return id
+	 */
+	public static function getUserRank( $id ) {
+		if( !filter_var($id, FILTER_VALIDATE_INT) ) {
+			throw new Exception('You must provide an integer value!');
+		}
+		
+		$sql = MyPDO::get();
+		$rq = $sql->prepare('SELECT rank FROM users WHERE id=:id');
+		$data = array(':id' => (int)$id);
+		$rq->execute($data);
+		
+		if( $rq->rowCount() != 0)
+		$row = $rq->fetch();
+		return (int)$row['rank'];
+	}
+	
+	/**
 	 * Génère  un token unique crypté.
 	 * @param int nbChar
 	 * @return a string if it's ok, false it's not.
@@ -147,7 +168,7 @@ class User
 		}
 		
 		$str = substr(crypt(uniqid(mt_rand(), true), 0), $nbChar);
-		return ckeckTokenExisted($str);
+		return self::ckeckTokenExisted($str);
 	}
 	
 	/**
@@ -162,7 +183,7 @@ class User
 		$rq->execute($data);
 		
 		if( $rq->rowCount() != 0)
-			return generateUniqueToken(2);
+			return self::generateUniqueToken(2);
 		else
 			return $token;
 	}
