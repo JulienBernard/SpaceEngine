@@ -61,9 +61,7 @@
 		<!-- Left Nav Section -->
 		<ul class="left">
 			<li class="divider"></li>
-			<li><a href="#">Link 1</a></li>
-			<li class="divider"></li>
-			<li><a href="#">Link 2</a></li>
+			<li><a href="#">Users</a></li>
 		</ul>
 
 		<!-- Right Nav Section -->
@@ -71,32 +69,29 @@
 			<li class="divider hide-for-small"></li>
 			<li class="has-dropdown hide-for-small"><a href="#">Navigation</a>
 				<ul class="dropdown">
-					<li><label>Dropdown Level 1 Label</label></li>
-					<li class="has-dropdown"><a href="#" class="">Dropdown Level 1a</a>
-					<ul class="dropdown">
-						<li><a href="#">Dropdown Level 2a</a></li>
-						<li><a href="#">Dropdown Level 2b</a></li>
-						<li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+					<li><label>Administration</label></li>
+					<li class="has-dropdown"><a href="#" class="">Pages</a>
 						<ul class="dropdown">
-							<li><a href="#">Dropdown Level 3a</a></li>
-							<li><a href="#">Dropdown Level 3b</a></li>
-							<li><a href="#">Dropdown Level 3c</a></li>
+							<li><a href="#">Pages list</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Latest page created</a></li>
 						</ul>
-						</li>
-						<li><a href="#">Dropdown Level 2d</a></li>
-						<li><a href="#">Dropdown Level 2e</a></li>
-						<li><a href="#">Dropdown Level 2f</a></li>
-					</ul>
 					</li>
-					<li><a href="#">Dropdown Level 1b</a></li>
-					<li><a href="#">Dropdown Level 1c</a></li>
+					<li class="has-dropdown"><a href="users.php" class="">Users</a>
+						<ul class="dropdown">
+							<li><a href="users.php">Users list</a></li>
+							<li><a href="#">Users lists, by activity</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Latest user created</a></li>
+						</ul>
+					</li>
 					<li class="divider"></li>
-					<li><label>Dropdown Level 1 Label</label></li>
-					<li><a href="#">Dropdown Level 1d</a></li>
-					<li><a href="#">Dropdown Level 1e</a></li>
-					<li><a href="#">Dropdown Level 1f</a></li>
+					<li><label>Fast Options</label></li>
+					<li><a href="#">Create new page</a></li>
+					<li><a href="#">Create new user</a></li>
+					<li><a href="#">See charts</a></li>
 					<li class="divider"></li>
-					<li><a href="#">See all &rarr;</a></li>
+					<li><a href="index.php">See all &rarr;</a></li>
 				</ul>
 			</li>
 			<li class="divider"></li>
