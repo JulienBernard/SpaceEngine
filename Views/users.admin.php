@@ -102,7 +102,7 @@
 				
 				<div class="large-12">
 					<p class="center">
-						<?php echo $User->countUsers( 0 ); ?> utilisateurs
+						<?php echo $User->countUsers( 0 ); ?> users
 					</p>
 				</div>
 				<div class="large-4 small-4 columns">
