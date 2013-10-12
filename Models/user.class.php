@@ -2,24 +2,175 @@
 
 class User
 {
-	private $_login;
-	private $_token;
+	private $_id;
+	private $_username;
+	private $_rank;
+	private $_rankText;
 	
 	/* Constructeur de la classe */
 	public function __construct( $id )
 	{
-		/* Récupération des informations depuis la bdd */
-		// TODO stock dans les variables d'instance
+		if( !filter_var($id, FILTER_VALIDATE_INT) ) {
+			throw new Exception('You must provide an integer value!');
+		}
+		$sqlData = $this->getUserData( $id );
+		$this->_id = $sqlData['id'];
+		$this->_username = $sqlData['username'];
+		$this->_rank = $sqlData['rank'];
+		if( $this->_rank == 3 )
+			$this->_rankText = "super admin";
+		else if( $this->_rank == 2 )
+			$this->_rankText = "admin";
+		else
+			$this->_rankText = "member";
 	}
 	
-	public function getLogin()
+	public function getId()
 	{
-		return $this->_login;
+		return $this->_id;
+	}
+	public function getUsername()
+	{
+		return $this->_username;
+	}
+	public function getRank()
+	{
+		return $this->_rank;
+	}
+	public function getRankText()
+	{
+		return $this->_rankText;
 	}
 	
-	public function getToken()
+	/**
+	 * Recupère les données utilisateur depuis la base de données.
+	 * @param int userId
+	 * @return array or 0 (error)
+	 */
+	private function getUserData( $userId ) {
+		
+		/* Validation des paramètres */
+		if( !is_numeric($userId) || $userId < 0 )
+			return false;
+		
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('SELECT id, username, rank, token FROM users WHERE id=:idUser');
+        $data = array(':idUser' => $userId );
+		$rq->execute($data);
+		
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cet utilisateur !');
+		$row = $rq->fetch();
+		return $row;
+	}
+	
+	/** Récupère une liste de utilisateurs (selon $size [DEFAUT : 10])
+	 * @param int $size				:	taille de la liste (plus elle est grande, plus la requête sera longue à effectuer !)
+	 * @param int $startPosition	:	position de départ
+	 */
+	public function getUsersList( $startPosition = 0, $size = 10 ) {
+		$sql = MyPDO::get();
+
+		/* Si on arrive sur la page de classement "principale",
+			on effectue une recherche sur la moitié supérieur aux nombre d'habitants
+			moyen retournée par MySql [SELECT AVG(pl_population)] */
+		if( $startPosition == 0 )
+		{
+			$rq = $sql->prepare('
+				SELECT id, username, rank, token, activity
+				FROM users
+				WHERE users.id > (SELECT AVG(id) FROM users)
+				ORDER BY users.id DESC
+				LIMIT :startPosition, :size
+			');
+			$rq->bindValue('startPosition', (int)$startPosition, PDO::PARAM_INT);
+			$rq->bindValue('size', (int)$size, PDO::PARAM_INT);
+			$rq->execute() or die(print_r($rq->errorInfo()));
+			
+			$array = array();
+			while( $row = $rq->fetch() )
+				$array[] = $row;
+			
+			/* Au cas où :
+				si le nombre de retour est inférieur à la taille souhaitée,
+				on check sur toute la BDD. Dans tous les cas, on renvoit les mêmes données. */
+			if( count($array) < $size )
+			{
+				unset($array);
+				$rq = $sql->prepare('
+					SELECT id, username, rank, token, activity
+					FROM users
+					ORDER BY users.id DESC
+					LIMIT :startPosition, :size
+				');
+				$rq->bindValue('startPosition', (int)$startPosition, PDO::PARAM_INT);
+				$rq->bindValue('size', (int)$size, PDO::PARAM_INT);
+				$rq->execute() or die(print_r($rq->errorInfo()));
+				
+				while( $row = $rq->fetch() )
+					$array[] = $row;
+			}
+		}
+		else {
+			$rq = $sql->prepare('
+				SELECT id, username, rank, token, activity
+				FROM users
+				ORDER BY users.id DESC
+				LIMIT :startPosition, :size
+			');
+			$rq->bindValue('startPosition', (int)$startPosition, PDO::PARAM_INT);
+			$rq->bindValue('size', (int)$size, PDO::PARAM_INT);
+			$rq->execute() or die(print_r($rq->errorInfo()));
+			
+			while( $row = $rq->fetch() )
+				$array[] = $row;
+		}
+		
+		if( isset($array) )
+			return $array;
+		else
+			return 0;
+	}
+	
+	/**
+	 * Met à jour l'activité de l'utilisateur (timestamp)
+	 * @param int userId
+	 */
+	public function updateActivity( $userId )
 	{
-		return $this->_token;
+		$newTime = time();
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('UPDATE users SET activity=:newTime WHERE id=:userId');
+        $data = array(':userId' => (int)$userId, ':newTime' => (int)$newTime );
+		$rq->execute($data);
+	}
+	
+	/** Retourne le nombre d'utilisateur
+	 * @param int $activity		:	durée après laquelle l'utilisateur est déclaré inactif (défaut 3 jours)
+	 * @param int $do			:	prendre en compte le tps ou juste sortir la liste
+	 */
+	public static function countUsers( $activity = 259200, $rank = null ) {
+		$currentActivityTime = time() - $activity;
+		
+		$sql = MyPDO::get();
+		if( (int)$activity != 0 )
+		{
+			$req = $sql->prepare('SELECT id, activity FROM users WHERE activity >= :activityTime');
+			$req->execute(array(':activityTime' => $currentActivityTime));
+		}
+		else
+		{
+			if( (int)$rank != null ) {
+				$req = $sql->prepare('SELECT id FROM users WHERE rank = :rank');
+				$req->execute(array(':rank' => $rank));
+			}
+			else {
+				$req = $sql->prepare('SELECT id FROM users');
+				$req->execute();
+			}
+		}
+		return $req->rowCount();
 	}
 	
 	/**
@@ -35,7 +186,7 @@ class User
 	 *	-4	: Impossible de générer un token sécurisé !
 	 */
 	public static function checkLogin( $username, $password ) {
-		$Engine = new Engine( "bidon" );
+		$Engine = new Engine( "mock" );
 		/* Validation des paramètres */
 		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
 			return 0;
@@ -47,9 +198,9 @@ class User
 					$Engine->destroySession("SpaceEngineConnected");
 					$Engine->destroySession("SpaceEngineToken");
 					/* Création du token unique pour la session de l'utilisateur */
-					$token = User::generateUniqueToken(2);
+					$token = self::generateUniqueToken(2);
 					if( $token != false ) {
-						if( User::updateToken( $token, $userId ) ) 
+						if( self::updateToken( $token, $userId ) ) 
 						{
 							$Engine->createSession("SpaceEngineConnected", (int)$userId);
 							$Engine->createSession("SpaceEngineToken", $token );
@@ -65,7 +216,7 @@ class User
 				return -2;
 		} else
 			return -1;
-	}	
+	}
 	
 	/**
 	 * Vérifie si l'username et le password sont exactes. 
@@ -162,7 +313,7 @@ class User
 	 * @param int nbChar
 	 * @return a string if it's ok, false it's not.
 	 */
-	private function generateUniqueToken( $nbChar = 2 ) {
+	private static function generateUniqueToken( $nbChar = 2 ) {
 		if( !filter_var($nbChar, FILTER_VALIDATE_INT) ) {
 			throw new Exception('You must provide an integer value!');
 		}
@@ -176,7 +327,7 @@ class User
 	 * @param String token
 	 * @return String
 	 */
-	private function ckeckTokenExisted( $token ) {
+	private static function ckeckTokenExisted( $token ) {
 		$sql = MyPDO::get();
 		$rq = $sql->prepare('SELECT id FROM users WHERE token=:token');
 		$data = array(':token' => (String)$token);
@@ -221,7 +372,7 @@ class User
 	 * @param int id
 	 * @return true or false
 	 */
-	private function updateToken( $token, $id ) {
+	private static function updateToken( $token, $id ) {
 		$sql = MyPDO::get();
 		$rq = $sql->prepare('UPDATE users SET token=:token WHERE id=:id');
         $data = array(':id' => $id, ':token' => $token);

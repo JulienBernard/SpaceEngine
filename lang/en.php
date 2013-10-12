@@ -2,6 +2,7 @@
 	/* Traduction trié par tableaux : CTRL+F pour accès rapide ! */
 	$navigation[] = Array();
 	$error[] = Array();
+	$admin[] = Array();
 	
 	/* navigation */	
 	$navigation["link1"] = "What, Why, Who";
@@ -17,4 +18,9 @@
 	$error["loginError2"] = "Your USERNAME must be greater than 3 characters and less than 20 characters.<br />Your PASSWORD must be greater than 3 characters.";
 	$error["loginError3"] = "USERNAME and PASSWORD doesn't match!";
 	$error["loginError4"] = "A big error has been detected : impossible to create your secure token!";
+	
+	/* admin */
+	$admin["generalAccountType"] = "you are connected as";	
+	$admin["usersBodyTitle1"] = "Users";
+	$admin["usersBodyTitle2"] = "Data";
 ?>

@@ -18,21 +18,20 @@
 				
 				/* Cet username n'est pas déjà attribué à un autre joueur. */
 				$login = User::checkLogin( $username, $password );
-				$l = $Lang->getErrorText();
 				if( $login == 1 ) {
-					$Engine->setSuccess($l['loginSuccess']);
+					$Engine->setSuccess($Lang->getErrorText('loginSuccess'));
 					?><script type="text/javascript">redirection(3, 'index.php');</script><?php
 				}
 				else if( $login == 0 )
-					$Engine->setError($l['loginError']);
+					$Engine->setError($Lang->getErrorText('loginError'));
 				else if( $login == -1 )
-					$Engine->setError($l['loginError1']);
+					$Engine->setError($Lang->getErrorText('loginError1'));
 				else if( $login == -2 )
-					$Engine->setError($l['loginError2']);
+					$Engine->setError($Lang->getErrorText('loginError2'));
 				else if( $login == -3 )
-					$Engine->setError($l['loginError3']);
+					$Engine->setError($Lang->getErrorText('loginError3'));
 				else if( $login == -4 )
-					$Engine->setError($l['loginError4']);
+					$Engine->setError($Lang->getErrorText('loginError4'));
 			}
 			else
 				$Engine->setInfo("Un des champs est vide.");
