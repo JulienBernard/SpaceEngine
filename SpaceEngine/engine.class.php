@@ -52,6 +52,7 @@ class Engine implements IEngine {
 		}
 		else if( Engine::isAdmin() ) {
 			$Template->addCss("admin.css");
+			User::updateActivity( $_SESSION['SpaceEngineConnected'] );
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.admin.php');
 			$Template->startTemplate('./template/header.admin.php', $Template, $Lang);
@@ -60,6 +61,7 @@ class Engine implements IEngine {
 		}
 		else if( Engine::isConnected() ) {
 			$Template->addCss("style.css");
+			User::updateActivity( $_SESSION['SpaceEngineConnected'] );
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
 			$Template->startTemplate('./template/header.connect.php', $Template, $Lang);

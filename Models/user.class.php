@@ -136,7 +136,7 @@ class User
 	 * Met à jour l'activité de l'utilisateur (timestamp)
 	 * @param int userId
 	 */
-	public function updateActivity( $userId )
+	public static function updateActivity( $userId )
 	{
 		$newTime = time();
 		$sql = MyPDO::get();
