@@ -46,35 +46,35 @@ class Engine implements IEngine {
 			$Template->addCss("style.css");
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.php');
-			$Template->startTemplate('./template/header.php', $Template, $Lang);
+			$Template->startTemplate('./template/header.php', $Template, $Engine, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.php', $Template, $Lang);
+			$Template->startTemplate('./template/footer.php', $Template, $Engine, $Lang);
 		}
 		else if( Engine::isAdmin() ) {
 			$Template->addCss("admin.css");
 			User::updateActivity( $_SESSION['SpaceEngineConnected'] );
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.admin.php');
-			$Template->startTemplate('./template/header.admin.php', $Template, $Lang);
+			$Template->startTemplate('./template/header.admin.php', $Template, $Engine, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.admin.php', $Template, $Lang);
+			$Template->startTemplate('./template/footer.admin.php', $Template, $Engine, $Lang);
 		}
 		else if( Engine::isConnected() ) {
 			$Template->addCss("style.css");
 			User::updateActivity( $_SESSION['SpaceEngineConnected'] );
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
-			$Template->startTemplate('./template/header.connect.php', $Template, $Lang);
+			$Template->startTemplate('./template/header.connect.php', $Template, $Engine, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.connect.php', $Template, $Lang);
+			$Template->startTemplate('./template/footer.connect.php', $Template, $Engine, $Lang);
 		}
 		else {
 			$Template->addCss("style.css");
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.php');
-			$Template->startTemplate('./template/header.php', $Template, $Lang);
+			$Template->startTemplate('./template/header.php', $Template, $Engine, $Lang);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.php', $Template, $Lang);
+			$Template->startTemplate('./template/footer.php', $Template, $Engine, $Lang);
 		}
 	}
 	
